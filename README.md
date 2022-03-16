@@ -12,23 +12,21 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Tasks
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+All components should be contained within the `src/components` folder. Redux has already been added to the project for the purpose of any Redux related tasks, anything that is not explicitly requested is up to the developer to interpret and find solutions for.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Task 1
 
-## Learn More
+1. Create two components and display them in `index.js`. Both components will require a text `input` that has a button that is disabled until the user enters more than three characters. One component should use local state, the other component should use Redux state (you wouldn't necessarily do this in a real world app, however this is just for the purpose of the task).
+2. Clicking the button when in it's non-disabled state should create a new entry in `localStorage` called `input_has_value` with a value of whatever is in the input when the button is clicked. Deleting all characters from either input should delete the `localStorage` item.
 
-To learn more about Next.js, take a look at the following resources:
+## Task 2
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<strong>API documentation</strong>: `https://www.petfinder.com/developers/v2/docs/` <br/>
+<strong>Animals endpoint</strong>: `https://api.petfinder.com/v2/animals`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. If you're not experienced with Next.js, go straight to point 2. Request a new `ACCESS_TOKEN` from the Pet Finder API and store it in a cookie. This cookie shouldn't be accessible via the client. Use an `asyncThunk` (already created) to make the request through to the Next.js API endpoints. The real endpoint URL should not be exposed to the client.
+2. Request a new `ACCESS_TOKEN` from the Pet Finder API and store it in a cookie for future requests.
+3. Create a new component and make a request to the `animals` endpoint to pull in 24 random dogs and cats and display them in a 6x4 grid with the name of the animal overlaid on top of the image/background. Ensure it's legible.
+4. Create a new component that resides inside the component you made above that has a filter. This filter should have 3 options; All, cats and dogs. Selecting All should show all animals (cats or dogs) and selecting dogs or cats should show only cats or dogs. All should be the default selection.
